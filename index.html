@@ -79,11 +79,28 @@ function cekSetting() {
   var hasil = document.getElementById("hasil");
 
   if (ram === "1") {
-    hasil.innerText = "Gunakan grafik paling rendah + matikan bayangan.";
+    hasil.innerHTML = `
+    <b>FF Kentang (1 GB)</b><br>
+    Grafik: Smooth<br>
+    Shadow: OFF<br>
+    FPS: Standard
+    `;
   } else if (ram === "2") {
-    hasil.innerText = "Gunakan grafik smooth + shadow OFF.";
+    hasil.innerHTML = `
+    <b>FF Stabil (2 GB)</b><br>
+    Grafik: Smooth<br>
+    Shadow: OFF<br>
+    FPS: High
+    `;
+  } else if (ram === "3") {
+    hasil.innerHTML = `
+    <b>FF Lancar (3 GB+)</b><br>
+    Grafik: Balanced<br>
+    Shadow: OFF<br>
+    FPS: High
+    `;
   } else {
-    hasil.innerText = "Gunakan grafik balanced + FPS tinggi.";
+    hasil.innerHTML = "Pilih RAM dulu!";
   }
 }
 </script>
