@@ -4,51 +4,72 @@
   <meta charset="UTF-8">
   <title>Tool FF Kentang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       text-align: center;
-      padding: 20px;
     }
-    h1 {
-      color: #38bdf8;
-    }
-    .box {
-      background: #020617;
-      padding: 20px;
-      border-radius: 10px;
+
+    .container {
       max-width: 400px;
-      margin: auto;
+      margin: 50px auto;
+      background: #0b132b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
+
+    h1 {
+      color: #4cc9f0;
+      margin-bottom: 20px;
+    }
+
     select, button {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
       border: none;
+      margin-top: 10px;
+      font-size: 16px;
     }
+
     button {
-      background: #22c55e;
+      background: #2ecc71;
+      color: #000;
       font-weight: bold;
+      cursor: pointer;
     }
-    #hasil {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #facc15;
+
+    button:hover {
+      background: #27ae60;
+    }
+
+    .hasil {
+      margin-top: 20px;
+      background: #000814;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .hasil span {
+      color: #ffd60a;
     }
   </style>
 </head>
-
 <body>
 
-  <h1>Tool FF Kentang</h1>
+  <div class="container">
+    <h1>Tool FF Kentang</h1>
 
-  <div class="box">
     <select id="ram">
-      <option value="">Pilih RAM HP</option>
+      <option value="">-- Pilih RAM HP --</option>
       <option value="1">1 GB</option>
       <option value="2">2 GB</option>
       <option value="3">3 GB+</option>
@@ -56,39 +77,63 @@
 
     <button onclick="cekSetting()">Cek Pengaturan</button>
 
-    <div id="hasil"></div>
+    <div id="hasil" class="hasil"></div>
   </div>
 
-  <!-- SCRIPT CUKUP SATU, DI SINI -->
   <script>
     function cekSetting() {
       var ram = document.getElementById("ram").value;
       var hasil = document.getElementById("hasil");
 
+      if (ram === "") {
+        hasil.style.display = "block";
+        hasil.innerHTML = "❌ Pilih RAM HP dulu.";
+        return;
+      }
+
       if (ram === "1") {
         hasil.innerHTML = `
-          <b>FF Kentang (1 GB)</b><br>
-          Grafik: Smooth<br>
-          Shadow: OFF<br>
-          FPS: Standard
+        <b>⚠️ Mode Kentang Ekstrem (1 GB)</b><br><br>
+        🎮 Grafik: <span>Very Smooth</span><br>
+        🖌️ Anti-Aliasing: <span>OFF</span><br>
+        🌫️ Shadow: <span>OFF</span><br>
+        🌱 Grass: <span>OFF</span><br>
+        💡 Filter: <span>OFF</span><br>
+        ⚡ FPS: <span>Medium</span><br>
+        🔥 Efek Skill: <span>Minimal</span><br>
+        🧠 Tips: Tutup aplikasi lain
         `;
-      } else if (ram === "2") {
-        hasil.innerHTML = `
-          <b>FF Stabil (2 GB)</b><br>
-          Grafik: Smooth<br>
-          Shadow: OFF<br>
-          FPS: High
-        `;
-      } else if (ram === "3") {
-        hasil.innerHTML = `
-          <b>FF Lancar (3 GB+)</b><br>
-          Grafik: Balanced<br>
-          Shadow: OFF<br>
-          FPS: High
-        `;
-      } else {
-        hasil.innerHTML = "Pilih RAM dulu!";
       }
+
+      if (ram === "2") {
+        hasil.innerHTML = `
+        <b>✅ Mode Kentang Stabil (2 GB)</b><br><br>
+        🎮 Grafik: <span>Smooth</span><br>
+        🖌️ Anti-Aliasing: <span>OFF</span><br>
+        🌫️ Shadow: <span>OFF</span><br>
+        🌱 Grass: <span>Low</span><br>
+        💡 Filter: <span>OFF</span><br>
+        ⚡ FPS: <span>High</span><br>
+        🔥 Efek Skill: <span>Low</span><br>
+        🧠 Tips: Pakai mode pesawat + WiFi
+        `;
+      }
+
+      if (ram === "3") {
+        hasil.innerHTML = `
+        <b>🚀 Mode Lancar (3 GB+)</b><br><br>
+        🎮 Grafik: <span>Balanced</span><br>
+        🖌️ Anti-Aliasing: <span>Low</span><br>
+        🌫️ Shadow: <span>OFF</span><br>
+        🌱 Grass: <span>Medium</span><br>
+        💡 Filter: <span>ON</span><br>
+        ⚡ FPS: <span>High</span><br>
+        🔥 Efek Skill: <span>Medium</span><br>
+        🧠 Tips: Aktifkan High FPS di FF
+        `;
+      }
+
+      hasil.style.display = "block";
     }
   </script>
 
