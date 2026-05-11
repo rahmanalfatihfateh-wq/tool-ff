@@ -2,82 +2,64 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Tool FF Kentang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool FF Kentang - Pro Player</title>
+
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(180deg,#050b1e,#020617);
       color: #fff;
+      font-family: Arial, sans-serif;
       text-align: center;
+      padding: 30px;
     }
-
-    .container {
-      max-width: 400px;
-      margin: 50px auto;
-      background: #0b132b;
-      padding: 20px;
+    .box {
+      max-width: 600px;
+      margin: auto;
+      background: #0b122f;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
     }
-
-    h1 {
-      color: #4cc9f0;
-      margin-bottom: 20px;
-    }
-
     select, button {
       width: 100%;
       padding: 12px;
+      margin-top: 12px;
       border-radius: 8px;
       border: none;
-      margin-top: 10px;
       font-size: 16px;
     }
-
     button {
-      background: #2ecc71;
+      background: #22c55e;
       color: #000;
       font-weight: bold;
       cursor: pointer;
     }
-
-    button:hover {
-      background: #27ae60;
-    }
-
-    .hasil {
+    #hasil {
       margin-top: 20px;
-      background: #000814;
-      padding: 15px;
-      border-radius: 10px;
       text-align: left;
-      font-size: 14px;
       line-height: 1.6;
-      display: none;
     }
-
-    .hasil span {
-      color: #ffd60a;
+    h2, h3 {
+      color: #facc15;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Tool FF Kentang</h1>
+  <h1>Tool FF Kentang</h1>
 
+  <div class="box">
     <select id="ram">
-      <option value="">-- Pilih RAM HP --</option>
-      <option value="1">1 GB</option>
+      <option value="">Pilih RAM HP</option>
       <option value="2">2 GB</option>
       <option value="3">3 GB+</option>
     </select>
 
     <button onclick="cekSetting()">Cek Pengaturan</button>
 
-    <div id="hasil" class="hasil"></div>
+    <div id="hasil"></div>
   </div>
 
   <script>
@@ -85,55 +67,63 @@
       var ram = document.getElementById("ram").value;
       var hasil = document.getElementById("hasil");
 
-      if (ram === "") {
-        hasil.style.display = "block";
-        hasil.innerHTML = "❌ Pilih RAM HP dulu.";
-        return;
-      }
-
-      if (ram === "1") {
-        hasil.innerHTML = `
-        <b>⚠️ Mode Kentang Ekstrem (1 GB)</b><br><br>
-        🎮 Grafik: <span>Very Smooth</span><br>
-        🖌️ Anti-Aliasing: <span>OFF</span><br>
-        🌫️ Shadow: <span>OFF</span><br>
-        🌱 Grass: <span>OFF</span><br>
-        💡 Filter: <span>OFF</span><br>
-        ⚡ FPS: <span>Medium</span><br>
-        🔥 Efek Skill: <span>Minimal</span><br>
-        🧠 Tips: Tutup aplikasi lain
-        `;
-      }
-
-      if (ram === "2") {
-        hasil.innerHTML = `
-        <b>✅ Mode Kentang Stabil (2 GB)</b><br><br>
-        🎮 Grafik: <span>Smooth</span><br>
-        🖌️ Anti-Aliasing: <span>OFF</span><br>
-        🌫️ Shadow: <span>OFF</span><br>
-        🌱 Grass: <span>Low</span><br>
-        💡 Filter: <span>OFF</span><br>
-        ⚡ FPS: <span>High</span><br>
-        🔥 Efek Skill: <span>Low</span><br>
-        🧠 Tips: Pakai mode pesawat + WiFi
-        `;
-      }
-
       if (ram === "3") {
         hasil.innerHTML = `
-        <b>🚀 Mode Lancar (3 GB+)</b><br><br>
-        🎮 Grafik: <span>Balanced</span><br>
-        🖌️ Anti-Aliasing: <span>Low</span><br>
-        🌫️ Shadow: <span>OFF</span><br>
-        🌱 Grass: <span>Medium</span><br>
-        💡 Filter: <span>ON</span><br>
-        ⚡ FPS: <span>High</span><br>
-        🔥 Efek Skill: <span>Medium</span><br>
-        🧠 Tips: Aktifkan High FPS di FF
-        `;
-      }
+        <h2>FF Pro Player Setting</h2>
+        <p>
+        Setting ini digunakan oleh player berpengalaman untuk menjaga FPS tetap stabil
+        saat war dan turnamen.
+        </p>
 
-      hasil.style.display = "block";
+        <h3>🎮 Grafik</h3>
+        <ul>
+          <li>Grafik: Balanced</li>
+          <li>Resolusi: High</li>
+          <li>Shadow: OFF</li>
+          <li>Anti-Aliasing: OFF</li>
+          <li>High FPS: ON</li>
+        </ul>
+
+        <h3>⚡ FPS & Performa</h3>
+        <ul>
+          <li>FPS Mode: High</li>
+          <li>V-Sync: OFF</li>
+          <li>Background App: Tutup semua</li>
+        </ul>
+
+        <h3>🎯 Sensitivity Pro Player</h3>
+        <ul>
+          <li>General: 90 – 95</li>
+          <li>Red Dot: 85 – 90</li>
+          <li>2x Scope: 75 – 80</li>
+          <li>4x Scope: 65 – 70</li>
+          <li>AWM Scope: 50 – 55</li>
+        </ul>
+
+        <h3>🔥 Tips Tambahan</h3>
+        <ul>
+          <li>Main di suhu HP dingin</li>
+          <li>Gunakan jaringan stabil</li>
+          <li>Jangan charge sambil main</li>
+        </ul>
+        `;
+      } else if (ram === "2") {
+        hasil.innerHTML = `
+        <h2>FF Mode Kentang</h2>
+        <p>
+        Setting ringan untuk HP RAM 2 GB agar tidak patah-patah.
+        </p>
+
+        <ul>
+          <li>Grafik: Smooth</li>
+          <li>Shadow: OFF</li>
+          <li>High FPS: OFF</li>
+          <li>Resolution: Low</li>
+        </ul>
+        `;
+      } else {
+        hasil.innerHTML = "<p>⚠️ Pilih RAM HP dulu.</p>";
+      }
     }
   </script>
 
