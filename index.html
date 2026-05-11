@@ -73,6 +73,19 @@
       }
     }
   </script>
+<script>
+function cekSetting() {
+  var ram = document.getElementById("ram").value;
+  var hasil = document.getElementById("hasil");
 
+  if (ram === "1") {
+    hasil.innerText = "Gunakan grafik paling rendah + matikan bayangan.";
+  } else if (ram === "2") {
+    hasil.innerText = "Gunakan grafik smooth + shadow OFF.";
+  } else {
+    hasil.innerText = "Gunakan grafik balanced + FPS tinggi.";
+  }
+}
+</script>
 </body>
 </html>
