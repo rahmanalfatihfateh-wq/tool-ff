@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tool FF Kentang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #38bdf8;
+    }
+    .box {
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      background: #22c55e;
+      font-weight: bold;
+    }
+    #hasil {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #facc15;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tool FF Kentang</h1>
+
+  <div class="box">
+    <select id="ram">
+      <option value="">Pilih RAM HP</option>
+      <option value="1">1 GB</option>
+      <option value="2">2 GB</option>
+      <option value="3">3 GB+</option>
+    </select>
+
+    <button onclick="cekSetting()">Cek Pengaturan</button>
+
+    <div id="hasil"></div>
+  </div>
+
+  <script>
+    function cekSetting() {
+      var ram = document.getElementById("ram").value;
+      var hasil = document.getElementById("hasil");
+
+      if (ram === "1") {
+        hasil.innerHTML = "Gunakan grafik paling rendah + matikan bayangan.";
+      } else if (ram === "2") {
+        hasil.innerHTML = "Gunakan grafik rendah + aktifkan FPS tinggi.";
+      } else if (ram === "3") {
+        hasil.innerHTML = "Gunakan grafik standar + FPS tinggi.";
+      } else {
+        hasil.innerHTML = "Pilih RAM dulu!";
+      }
+    }
+  </script>
+
+</body>
+</html>
