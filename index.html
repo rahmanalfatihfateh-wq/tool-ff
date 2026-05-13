@@ -1,105 +1,154 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Bio FF Keren 2026 | Bio Free Fire Pro, Toxic, Santai</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF Bio Generator</title>
 <style>
-body {
-  background:#0d0d0d;
-  color:#fff;
-  font-family:Arial, sans-serif;
+body{
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  color:white;
   text-align:center;
   padding:20px;
 }
-h1 { color:#ff6a00; }
-.box {
-  background:#1a1a1a;
-  padding:15px;
-  border-radius:10px;
-  margin:20px auto;
-  max-width:350px;
+select,button{
+  padding:10px;
+  margin:10px;
   font-size:16px;
 }
-button {
-  width:45%;
-  padding:12px;
-  margin:5px;
-  border:none;
-  border-radius:8px;
-  font-weight:bold;
-  background:#ff6a00;
-  color:white;
-}
-.menu button {
-  width:90%;
-}
-.footer {
-  font-size:12px;
-  opacity:0.6;
+#hasil{
   margin-top:20px;
+  padding:15px;
+  border:2px dashed #38bdf8;
+  white-space:pre-line;
+  color:#38bdf8;
+  font-weight:bold;
 }
 </style>
 </head>
-
 <body>
 
-<h1>🔥 Bio FF Generator</h1>
-<p>Copy bio Free Fire keren — 1 klik</p>
+<h2>🔥 FF BIO GENERATOR 🔥</h2>
 
-<div class="menu">
-  <button onclick="setKategori('pro')">🔥 Bio Pro</button>
-  <button onclick="setKategori('toxic')">☠️ Bio Toxic</button>
-  <button onclick="setKategori('santai')">😎 Bio Santai</button>
-</div>
+<select id="kategori">
+  <option value="pro">🔥 PRO</option>
+  <option value="toxic">☠ TOXIC</option>
+  <option value="santai">😎 SANTAI</option>
+</select>
 
-<div class="box" id="bio">
-Klik kategori untuk mulai
-</div>
+<br>
+<button onclick="generate()">🎯 GENERATE BIO</button>
 
-<button onclick="copyBio()">COPY</button>
-<button onclick="randomBio()">GANTI</button>
-
-<div class="footer">
-© Bio FF Generator
-</div>
+<div id="hasil">Klik tombol untuk bio</div>
 
 <script>
-let kategori = "pro";
-
 const data = {
-  pro: [
-    "亗𝙿𝚁𝙾 𝙿𝙻𝙰𝚈𝙴𝚁亗\nBooyah Or Die",
-    "FF PRO MODE\nNo Mercy",
-    "𝙻𝙾𝙽𝙴 𝙵𝙵\nSilent Kill"
-  ],
-  toxic: [
-    "NO TALK\nJUST BOOYAH",
-    "BOT JANGAN NANGIS",
-    "SKILL ISSUE?"
-  ],
-  santai: [
-    "Main Santai\nBooyah Datang",
-    "No Rank No Stress",
-    "Push Rank Kalau Mood"
-  ]
+pro:[
+"🔥PRO PLAYER🔥\nAuto Booyah",
+"⚡ONE TAP⚡\nNo Mercy",
+"亗HEADSHOT亗\nSilent Kill",
+"👑FF KING👑\nNo Fear",
+"🔥RUSHER🔥\nAnti Mundur",
+"⚡AIM LOCK⚡\nPro Only",
+"☠CLUTCH☠\nLast Survivor",
+"🔥SOLO PRO🔥\nNo Backup",
+"⚡FAST KILL⚡\nClean Shot",
+"👑ELITE👑\nTop Global",
+"🔥AUTO HS🔥\nNo Miss",
+"⚡ONE SHOT⚡\nOne Life",
+"☠PRO MODE☠\nNo Mercy",
+"🔥FULL RUSH🔥\nNo Camp",
+"⚡SKILL ON⚡\nBrain Active",
+"👑LEGEND👑\nBorn Winner",
+"🔥AIM GOD🔥\nSharp Eye",
+"⚡PRO ZONE⚡\nEnter Death",
+"☠KILLER☠\nNo Mercy",
+"🔥FF ELITE🔥\nHard Mode",
+"⚡PRO AIM⚡\nClean Kill",
+"👑CHAMPION👑\nRanked Pro",
+"🔥AUTO WIN🔥\nNo Excuse",
+"⚡ONE TAP⚡\nFast End",
+"☠RUSH GOD☠\nFearless",
+"🔥SKILL MAX🔥\nPro Mind",
+"⚡AIM PRO⚡\nClean Game",
+"👑FF HERO👑\nNever Die",
+"🔥PRO FF🔥\nNo Drama",
+"⚡LOCK TARGET⚡\nDead"
+],
+
+toxic:[
+"☠NO TALK☠\nJUST BOOYAH",
+"BOT JANGAN NANGIS",
+"SKILL ISSUE?",
+"☠ANTI NOOB☠",
+"MAIN ATAU PULANG?",
+"☠DIE FAST☠",
+"NO MIC NO LIFE",
+"☠BOT ALERT☠",
+"KOK LAMA MATI?",
+"☠EZ GAME☠",
+"NO SKILL NO TALK",
+"☠TRY HARD☠",
+"BOT DETECTED",
+"☠LOSE FAST☠",
+"EZ CLAP",
+"☠RIP ENEMY☠",
+"MAIN PAKE OTAK",
+"☠NO MERCY☠",
+"BOT LEVEL MAX",
+"☠KNOCK EASY☠",
+"EZ BOY",
+"☠DONT CRY☠",
+"NOOB ALERT",
+"☠JUST DIE☠",
+"SKILL 0",
+"☠ANTI AMPAS☠",
+"BOT CONFIRMED",
+"☠EZ KILL☠",
+"TRY AGAIN",
+"☠GAME OVER☠"
+],
+
+santai:[
+"😎MAIN SANTAI😎\nNO STRESS",
+"NGOPI DULU ☕",
+"MAIN KALO MOOD",
+"😎NO RUSH😎",
+"BOOYAH BONUS",
+"😎CASUAL FF😎",
+"MAIN BUKAN MARAH",
+"😎HAPPY GAME😎",
+"SANTAI AJA BRO",
+"😎NO DRAMA😎",
+"MAIN KETAWA",
+"😎RANK URUSAN NANTI😎",
+"PUSH KALO MOOD",
+"😎CHILL MODE😎",
+"MAIN BUAT FUN",
+"😎SANTAI BOY😎",
+"LOSE? SANTAI",
+"😎HAVE FUN😎",
+"BOOYAH SYUKUR",
+"😎NO TOXIC😎",
+"MAIN BIASA",
+"😎RELAX😎",
+"NGOPI LAGI ☕",
+"😎NO TARGET😎",
+"MAIN TENANG",
+"😎ENJOY😎",
+"BOOYAH ATAU TIDUR",
+"😎SLOW GAME😎",
+"MAIN HATI SENANG",
+"😎SANTAI MODE😎"
+]
 };
 
-function setKategori(k) {
-  kategori = k;
-  randomBio();
-}
-
-function randomBio() {
-  const list = data[kategori];
-  const i = Math.floor(Math.random() * list.length);
-  document.getElementById("bio").innerText = list[i];
-}
-
-function copyBio() {
-  const text = document.getElementById("bio").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Bio berhasil di copy!");
+function generate(){
+  const kat = document.getElementById("kategori").value;
+  const list = data[kat];
+  const random = Math.floor(Math.random()*list.length);
+  document.getElementById("hasil").innerText = list[random];
 }
 </script>
 
