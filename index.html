@@ -3,152 +3,119 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>FF Bio Generator</title>
+<title>FF Bio Generator – Keren & Viral</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body{
-  font-family: Arial, sans-serif;
-  background:#0f172a;
-  color:white;
+  background:linear-gradient(180deg,#020617,#020617);
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
   text-align:center;
-  padding:20px;
+  padding:40px 15px;
 }
+h1{color:#ff9800}
 select,button{
-  padding:10px;
-  margin:10px;
+  padding:10px 15px;
+  margin:8px;
+  border:none;
+  border-radius:8px;
   font-size:16px;
 }
-#hasil{
+button{
+  background:#ff9800;
+  color:#000;
+  font-weight:bold;
+}
+#bio{
   margin-top:20px;
   padding:15px;
-  border:2px dashed #38bdf8;
-  white-space:pre-line;
-  color:#38bdf8;
-  font-weight:bold;
+  border:2px dashed #ff9800;
+  border-radius:10px;
+  min-height:60px;
+  font-size:18px;
+  color:#00e5ff;
 }
 </style>
 </head>
+
 <body>
 
-<h2>🔥 FF BIO GENERATOR 🔥</h2>
+<h1>🔥 FF BIO GENERATOR 🔥</h1>
 
 <select id="kategori">
-  <option value="pro">🔥 PRO</option>
-  <option value="toxic">☠ TOXIC</option>
-  <option value="santai">😎 SANTAI</option>
+  <option value="pro">🔥 Pro</option>
+  <option value="toxic">☠️ Toxic</option>
+  <option value="santai">😎 Santai</option>
 </select>
 
 <br>
 <button onclick="generate()">🎯 GENERATE BIO</button>
+<button onclick="copyBio()">📋 COPY</button>
 
-<div id="hasil">Klik tombol untuk bio</div>
+<div id="bio">Klik tombol generate</div>
 
 <script>
-const data = {
+const data={
 pro:[
-"🔥PRO PLAYER🔥\nAuto Booyah",
-"⚡ONE TAP⚡\nNo Mercy",
-"亗HEADSHOT亗\nSilent Kill",
-"👑FF KING👑\nNo Fear",
-"🔥RUSHER🔥\nAnti Mundur",
-"⚡AIM LOCK⚡\nPro Only",
-"☠CLUTCH☠\nLast Survivor",
-"🔥SOLO PRO🔥\nNo Backup",
-"⚡FAST KILL⚡\nClean Shot",
-"👑ELITE👑\nTop Global",
-"🔥AUTO HS🔥\nNo Miss",
-"⚡ONE SHOT⚡\nOne Life",
-"☠PRO MODE☠\nNo Mercy",
-"🔥FULL RUSH🔥\nNo Camp",
-"⚡SKILL ON⚡\nBrain Active",
-"👑LEGEND👑\nBorn Winner",
-"🔥AIM GOD🔥\nSharp Eye",
-"⚡PRO ZONE⚡\nEnter Death",
-"☠KILLER☠\nNo Mercy",
-"🔥FF ELITE🔥\nHard Mode",
-"⚡PRO AIM⚡\nClean Kill",
-"👑CHAMPION👑\nRanked Pro",
-"🔥AUTO WIN🔥\nNo Excuse",
-"⚡ONE TAP⚡\nFast End",
-"☠RUSH GOD☠\nFearless",
-"🔥SKILL MAX🔥\nPro Mind",
-"⚡AIM PRO⚡\nClean Game",
-"👑FF HERO👑\nNever Die",
-"🔥PRO FF🔥\nNo Drama",
-"⚡LOCK TARGET⚡\nDead"
+"🔥 PRO PLAYER 🔥","⚡ HEADSHOT ONLY ⚡","🎯 AIM NO MISS",
+"FF PRO MODE","NO MERCY","BOOYAH IS HABIT",
+"KILL > TALK","FAST HAND FAST BOOYAH",
+"SQUAD FEAR ME","RUSH BOSS","CLUTCH KING",
+"ONE TAP ONE DEAD","FF LEGEND","PRO NO DEBAT",
+"SKILL > SKIN","TRY HARD MODE","SERIOUS PLAYER",
+"WIN OR LEARN","ZONE MASTER","PRO FF LIFE",
+"HEADSHOT MACHINE","ELITE MODE","PRO MINDSET",
+"NO CAMP NO FEAR","FULL RUSH","PRO PLAYER ID",
+"FF ESPORT SOUL","REAL PRO","AIM GOD",
+"RANK PUSHER","MASTER FF","PRO EVERY MATCH"
 ],
-
 toxic:[
-"☠NO TALK☠\nJUST BOOYAH",
-"BOT JANGAN NANGIS",
-"SKILL ISSUE?",
-"☠ANTI NOOB☠",
-"MAIN ATAU PULANG?",
-"☠DIE FAST☠",
-"NO MIC NO LIFE",
-"☠BOT ALERT☠",
-"KOK LAMA MATI?",
-"☠EZ GAME☠",
-"NO SKILL NO TALK",
-"☠TRY HARD☠",
-"BOT DETECTED",
-"☠LOSE FAST☠",
-"EZ CLAP",
-"☠RIP ENEMY☠",
-"MAIN PAKE OTAK",
-"☠NO MERCY☠",
-"BOT LEVEL MAX",
-"☠KNOCK EASY☠",
-"EZ BOY",
-"☠DONT CRY☠",
-"NOOB ALERT",
-"☠JUST DIE☠",
-"SKILL 0",
-"☠ANTI AMPAS☠",
-"BOT CONFIRMED",
-"☠EZ KILL☠",
-"TRY AGAIN",
-"☠GAME OVER☠"
+"☠️ BOT JANGAN NANGIS","NO TALK JUST BOOYAH",
+"BOT ALERT","KNOCK DULU BARU BACOT",
+"SKILL ISSUE?","MENDING AFK",
+"BOT KETEMU PRO","KOK MATI?",
+"BOT KOK SAKIT HATI","NANGIS DI LOBBY",
+"EZ GAME","BOT MODE ON",
+"FREE KILL","NGAPAIN HIDUP?",
+"BOT FF","MAIN ATAU PULANG",
+"NO SKILL NO TALK","BOT DETECTED",
+"EZ BOOYAH","KOK LELET?",
+"BELAJAR DULU","BOT KESEL",
+"MATI LAGI","KNOCK TERUS",
+"BOT OVERTHINK","GIT GUD",
+"SKILL WHERE?","EZ RANK",
+"BOT MOMENT","GABUT MATI"
 ],
-
 santai:[
-"😎MAIN SANTAI😎\nNO STRESS",
-"NGOPI DULU ☕",
-"MAIN KALO MOOD",
-"😎NO RUSH😎",
-"BOOYAH BONUS",
-"😎CASUAL FF😎",
-"MAIN BUKAN MARAH",
-"😎HAPPY GAME😎",
-"SANTAI AJA BRO",
-"😎NO DRAMA😎",
-"MAIN KETAWA",
-"😎RANK URUSAN NANTI😎",
-"PUSH KALO MOOD",
-"😎CHILL MODE😎",
-"MAIN BUAT FUN",
-"😎SANTAI BOY😎",
-"LOSE? SANTAI",
-"😎HAVE FUN😎",
-"BOOYAH SYUKUR",
-"😎NO TOXIC😎",
-"MAIN BIASA",
-"😎RELAX😎",
-"NGOPI LAGI ☕",
-"😎NO TARGET😎",
-"MAIN TENANG",
-"😎ENJOY😎",
-"BOOYAH ATAU TIDUR",
-"😎SLOW GAME😎",
-"MAIN HATI SENANG",
-"😎SANTAI MODE😎"
+"😎 MAIN SANTAI 😎","PUSH KALO MOOD",
+"NO RANK NO STRESS","BOOYAH BONUS",
+"MAIN BUAT FUN","SANTAI DULU",
+"NGOPI SAMBIL MAIN","KALAH GAPAPA",
+"YANG PENTING MAIN","CHILL PLAYER",
+"FUN GAME","SANTAI BRO",
+"LOSE NO DRAMA","GAS KALO NIAT",
+"MAIN PAS SENGGANG","NO TOXIC",
+"HAPPY FF","SLOW BUT SURE",
+"RANK BESOK","MAIN WARAS",
+"FUN FIRST","SANTAI MODE",
+"ANTI STRESS","GABUT MAIN",
+"CASUAL FF","SENYUM BOOYAH",
+"RELAX PLAYER","SANTAI TERUS",
+"MAIN AMAN","HEPI HEPI"
 ]
 };
 
 function generate(){
-  const kat = document.getElementById("kategori").value;
-  const list = data[kat];
-  const random = Math.floor(Math.random()*list.length);
-  document.getElementById("hasil").innerText = list[random];
+  const kat=document.getElementById("kategori").value;
+  const list=data[kat];
+  const i=Math.floor(Math.random()*list.length);
+  document.getElementById("bio").innerText=list[i];
+}
+
+function copyBio(){
+  const t=document.getElementById("bio").innerText;
+  navigator.clipboard.writeText(t);
+  alert("Bio berhasil dicopy!");
 }
 </script>
 
