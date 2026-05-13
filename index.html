@@ -2,176 +2,106 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<title>Bio FF Generator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FF GFX Tool Full</title>
-
 <style>
-body{
-  margin:0;
+body {
+  background:#0d0d0d;
+  color:#fff;
   font-family:Arial, sans-serif;
-  background:linear-gradient(#050b1e,#020617);
-  color:white;
-}
-.container{
-  max-width:420px;
-  margin:40px auto;
-  padding:20px;
-  background:#0b122e;
-  border-radius:15px;
-  box-shadow:0 0 20px rgba(0,255,255,.2);
-}
-h1{
   text-align:center;
-  color:#38bdf8;
+  padding:20px;
 }
-select,button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-  font-size:16px;
-}
-button{
-  background:#22c55e;
-  color:black;
-  font-weight:bold;
-  cursor:pointer;
-}
-.result{
-  margin-top:20px;
-  background:#020617;
+h1 { color:#ff6a00; }
+.box {
+  background:#1a1a1a;
   padding:15px;
   border-radius:10px;
+  margin:20px auto;
+  max-width:350px;
+  font-size:16px;
 }
-.title{
-  color:#facc15;
+button {
+  width:45%;
+  padding:12px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
   font-weight:bold;
-  margin-top:15px;
+  background:#ff6a00;
+  color:white;
 }
-ul{
-  padding-left:18px;
+.menu button {
+  width:90%;
 }
-li{
-  margin:6px 0;
+.footer {
+  font-size:12px;
+  opacity:0.6;
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-<h1>🔥 FF GFX Tool Full</h1>
 
-<label>RAM HP</label>
-<select id="ram">
-  <option value="1">1 GB</option>
-  <option value="2">2 GB</option>
-  <option value="3">3 GB+</option>
-</select>
+<h1>🔥 Bio FF Generator</h1>
+<p>Copy bio Free Fire keren — 1 klik</p>
 
-<label>Preset Player</label>
-<select id="preset">
-  <option value="kentang">Kentang / Low End</option>
-  <option value="stabil">Stabil Rank</option>
-  <option value="pro">Pro Player</option>
-</select>
-
-<button onclick="cekSetting()">Terapkan GFX</button>
-
-<div class="result" id="hasil">
-Pilih pengaturan lalu klik Terapkan
+<div class="menu">
+  <button onclick="setKategori('pro')">🔥 Bio Pro</button>
+  <button onclick="setKategori('toxic')">☠️ Bio Toxic</button>
+  <button onclick="setKategori('santai')">😎 Bio Santai</button>
 </div>
+
+<div class="box" id="bio">
+Klik kategori untuk mulai
+</div>
+
+<button onclick="copyBio()">COPY</button>
+<button onclick="randomBio()">GANTI</button>
+
+<div class="footer">
+© Bio FF Generator
 </div>
 
 <script>
-function cekSetting(){
-  let ram=document.getElementById("ram").value;
-  let preset=document.getElementById("preset").value;
-  let html="";
+let kategori = "pro";
 
-  if(preset==="kentang"){
-    html=`
-    <div class="title">⚙️ GFX Kentang</div>
-    <ul>
-      <li>Grafik: Smooth</li>
-      <li>Resolusi: Low</li>
-      <li>Shadow: OFF</li>
-      <li>Anti-Aliasing: OFF</li>
-      <li>High FPS: ON</li>
-      <li>FPS Target: 45–60</li>
-    </ul>
-    <div class="title">🎯 Sensitivitas</div>
-    <ul>
-      <li>General: 95</li>
-      <li>Red Dot: 90</li>
-      <li>2x Scope: 80</li>
-      <li>4x Scope: 65</li>
-      <li>AWM Scope: 50</li>
-    </ul>
-    <div class="title">🔥 Tips</div>
-    <ul>
-      <li>Tutup semua aplikasi</li>
-      <li>Main 30–60 menit saja</li>
-      <li>Jangan sambil charge</li>
-    </ul>`;
-  }
+const data = {
+  pro: [
+    "亗𝙿𝚁𝙾 𝙿𝙻𝙰𝚈𝙴𝚁亗\nBooyah Or Die",
+    "FF PRO MODE\nNo Mercy",
+    "𝙻𝙾𝙽𝙴 𝙵𝙵\nSilent Kill"
+  ],
+  toxic: [
+    "NO TALK\nJUST BOOYAH",
+    "BOT JANGAN NANGIS",
+    "SKILL ISSUE?"
+  ],
+  santai: [
+    "Main Santai\nBooyah Datang",
+    "No Rank No Stress",
+    "Push Rank Kalau Mood"
+  ]
+};
 
-  if(preset==="stabil"){
-    html=`
-    <div class="title">⚙️ GFX Stabil Rank</div>
-    <ul>
-      <li>Grafik: Balanced</li>
-      <li>Resolusi: Medium</li>
-      <li>Shadow: OFF</li>
-      <li>Anti-Aliasing: OFF</li>
-      <li>High FPS: ON</li>
-      <li>FPS Target: 60</li>
-    </ul>
-    <div class="title">🎯 Sensitivitas</div>
-    <ul>
-      <li>General: 90</li>
-      <li>Red Dot: 85</li>
-      <li>2x Scope: 75</li>
-      <li>4x Scope: 65</li>
-      <li>AWM Scope: 55</li>
-    </ul>
-    <div class="title">🔥 Tips</div>
-    <ul>
-      <li>Gunakan WiFi stabil</li>
-      <li>HP tidak panas</li>
-    </ul>`;
-  }
+function setKategori(k) {
+  kategori = k;
+  randomBio();
+}
 
-  if(preset==="pro"){
-    html=`
-    <div class="title">⚙️ GFX Pro Player</div>
-    <ul>
-      <li>Grafik: Balanced</li>
-      <li>Resolusi: High</li>
-      <li>Shadow: OFF</li>
-      <li>Anti-Aliasing: OFF</li>
-      <li>High FPS: ON</li>
-      <li>FPS Target: 60–90</li>
-      <li>V-Sync: OFF</li>
-    </ul>
-    <div class="title">🎯 Sensitivitas Pro</div>
-    <ul>
-      <li>General: 90–95</li>
-      <li>Red Dot: 85–90</li>
-      <li>2x Scope: 75–80</li>
-      <li>4x Scope: 65–70</li>
-      <li>AWM Scope: 50–55</li>
-    </ul>
-    <div class="title">🔥 Tips Pro</div>
-    <ul>
-      <li>Main di ruangan dingin</li>
-      <li>Pakai earphone latency rendah</li>
-      <li>Restart HP sebelum war</li>
-    </ul>`;
-  }
+function randomBio() {
+  const list = data[kategori];
+  const i = Math.floor(Math.random() * list.length);
+  document.getElementById("bio").innerText = list[i];
+}
 
-  document.getElementById("hasil").innerHTML=html;
+function copyBio() {
+  const text = document.getElementById("bio").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Bio berhasil di copy!");
 }
 </script>
+
 </body>
 </html>
