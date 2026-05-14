@@ -164,7 +164,9 @@ function copyText(btn){
   navigator.clipboard.writeText(text);
   btn.innerText="COPIED";
   setTimeout(()=>btn.innerText="COPY",1000);
-}
+document.addEventListener("copy", function () {
+  alert("⚡ Bio kamu dicopy!");
+});
 </script>
 
 </div>
