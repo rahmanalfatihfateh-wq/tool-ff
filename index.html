@@ -1,148 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Bio FF Warna-Warni</title>
+<title>FF Bio Generator</title>
 <style>
 body{
-  background:#0f172a;
+  margin:0;
   font-family:Arial, sans-serif;
-  color:white;
+  background:radial-gradient(circle at top,#0b1a3a,#020617);
+  color:#fff;
+  text-align:center;
+}
+h1{
+  margin-top:30px;
+  color:#ff9f1c;
+  letter-spacing:2px;
 }
 .container{
-  max-width:600px;
-  margin:auto;
-  padding:15px;
+  margin-top:30px;
 }
-.bio{
-  background:#020617;
-  border:1px solid #334155;
-  border-radius:8px;
-  padding:10px;
-  margin-bottom:10px;
-}
-.text{
-  font-size:16px;
-  margin-bottom:8px;
-}
-button{
-  background:#22c55e;
+select,button{
+  padding:12px 18px;
+  border-radius:10px;
   border:none;
-  color:black;
-  padding:6px 12px;
-  border-radius:5px;
-  cursor:pointer;
+  font-size:15px;
+  font-weight:bold;
 }
-button:active{
-  transform:scale(0.95);
+select{
+  margin-bottom:15px;
+}
+.btn-gen{
+  background:#ff9f1c;
+  color:#000;
+  margin-right:8px;
+}
+.btn-copy{
+  background:#22c55e;
+  color:#000;
+}
+.box{
+  margin:30px auto;
+  max-width:320px;
+  padding:20px;
+  border:2px dashed #ff9f1c;
+  border-radius:14px;
+}
+.rainbow{
+  font-size:20px;
+  font-weight:bold;
+  background:linear-gradient(90deg,#ff004c,#ff9100,#ffee00,#00ff99,#00ccff,#a855f7);
+  background-size:300% 300%;
+  animation:rainbow 4s linear infinite;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+@keyframes rainbow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 </style>
 </head>
 
 <body>
+
+<h1>🔥 FF BIO GENERATOR 🔥</h1>
+
 <div class="container">
+  <select id="kategori">
+    <option value="toxic">☠️ Toxic</option>
+    <option value="santuy">😎 Santuy</option>
+    <option value="pro">🔥 Pro</option>
+  </select><br>
 
-  <div class="bio">
-    <div class="text">🔥 ꧁༺ʙᴏᴏʏᴀʜ༻꧂ 🔥</div>
-    <button onclick="copyText(this)">Copy</button>
+  <button class="btn-gen" onclick="generateBio()">🎯 GENERATE BIO</button>
+  <button class="btn-copy" onclick="copyBio()">📋 COPY</button>
+
+  <div class="box">
+    <div id="bio" class="rainbow">Klik Generate Bio</div>
   </div>
-
-  <div class="bio">
-    <div class="text">⚡ FF KENTANG TAPI PRO ⚡</div>
-    <button onclick="copyText(this)">Copy</button>
-  </div>
-
-  <div class="bio">
-    <div class="text">👑 SOLO VS SQUAD 👑</div>
-    <button onclick="copyText(this)">Copy</button>
-  </div>
-
-  <div class="bio"><div class="text">🔥 ꧁༺BOOYAH༻꧂ 🔥</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ FF KENTANG TAPI PRO ⚡</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">👑 SOLO VS SQUAD 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💀 NO SKILL NO TALK 💀</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 RUSH TERUS BOOYAH 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">⚔️ ONE TAP ONE DEAD ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎯 AIM SANTUY DAMAGE SADIS 🎯</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">👻 HEADSHOT IS MY HABIT 👻</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 MAIN SENYAP MENANG CEPAT 🔥</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ BARBAR SAMPAI ZONA ⚡</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👑 LAST ZONE KING 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💣 GRANAT JALAN TERUS 💣</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 PUSH RANK NO DRAMA 🔥</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎮 FF BUKAN GAME, TAPI TAKDIR 🎮</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚔️ CLUTCH OR DIE ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">💀 AUTO HEADSHOT MODE 💀</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 DAMAGE NGGA NGOTAK 🔥</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">👑 JAGO DIAM-DIAM 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ RUSH PAKAI OTAK ⚡</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎯 SATU PELURU SATU NYAWA 🎯</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">🔥 FF PLAYER NO BACOT 🔥</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💣 ZONA AKHIR TEMPATKU 💣</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">👻 DATANG SENYAP PERGI BOOYAH 👻</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚔️ SKILL DI ATAS KATA ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 MAIN RUSH TANPA TAKUT 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👑 FF PRO NO SETTING 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎯 AIM LOCK OTAK JALAN 🎯</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💀 DROP ENEMY TANPA AMPUN 💀</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ SPEED + AIM = BOOYAH ⚡</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 FF RASA TURNAMEN 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👑 ONE MAN ARMY 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎮 MAIN TENANG HASIL MENANG 🎮</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💣 RUSH TERAKHIR AUTO GG 💣</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚔️ FF IS MY ZONE ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 JANGAN KEJAR, AKU DATANG 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👻 SENYAP MEMATIKAN 👻</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎯 AIM TAJAM OTAK DINGIN 🎯</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💀 FF MODE SERIUS 💀</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ GERAK CEPAT MATI CEPAT ⚡</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 PUSH TANPA RAGU 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👑 PRO BUKAN BACOT 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎮 MAIN SANTUY HASIL SADIS 🎮</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💣 ZONA AKHIR MILIKKU 💣</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚔️ FF OR NOTHING ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 BOOYAH TIAP HARI 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👻 DATANG TANPA SUARA 👻</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎯 AKURASI DI ATAS SEGALANYA 🎯</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💀 FF MODE BARBAR 💀</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ GERAK CEPAT BOOYAH CEPAT ⚡</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 MAIN GAS POL 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👑 KING OF ZONE 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎮 FF IS MY LIFE 🎮</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💣 RUSH SAMPAI MENANG 💣</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚔️ SKILL NO SETTING ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 HEADSHOT EVERYDAY 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👻 FF PLAYER SENYAP 👻</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎯 AIM MODE ON 🎯</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💀 BARBAR SAMPAI BOOYAH 💀</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚡ FF NO MERCY ⚡</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 MAIN RAPI MENANG PASTI 🔥</div><button onclick="copyText(this)">Copy</button></div>
-
-<div class="bio"><div class="text">👑 PRO ZONA AKHIR 👑</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🎮 FF STYLE SANTUY 🎮</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">💣 DAMAGE NGGAK NGIRA 💣</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">⚔️ MAIN TENANG AUTO MENANG ⚔️</div><button onclick="copyText(this)">Copy</button></div>
-<div class="bio"><div class="text">🔥 BOOYAH BUKAN MIMPI 🔥</div><button onclick="copyText(this)">Copy</button></div>
 </div>
 
 <script>
-function copyText(btn){
-  let text = btn.previousElementSibling.innerText;
+const data = {
+toxic:[
+"☠️ MENDING AFK",
+"🔥 KALAH SEKALI BALAS 10X",
+"💀 BARBAR SAMPAI BOOYAH",
+"☠️ FF MODE SADIS",
+"🔥 NO MERCY"
+],
+santuy:[
+"😎 MAIN SANTUY AUTO BOOYAH",
+"🌴 MAIN TENANG MENANG DATANG",
+"😎 LOGIN BENTAR RANK NAIK",
+"🌤️ SANTUY TAPI BERBAHAYA",
+"😎 FF JALAN TERUS"
+],
+pro:[
+"🔥 AIM KEPALA BUKAN BADAN",
+"🎯 AKURASI DI ATAS SEGALANYA",
+"👑 ZONA AKHIR MILIKKU",
+"🔥 SKILL > SETTING",
+"🎯 ONE TAP ONE DOWN"
+]
+};
+
+function generateBio(){
+  const kat=document.getElementById("kategori").value;
+  const list=data[kat];
+  const random=list[Math.floor(Math.random()*list.length)];
+  document.getElementById("bio").innerText=random;
+}
+
+function copyBio(){
+  const text=document.getElementById("bio").innerText;
+  if(text==="Klik Generate Bio") return;
   navigator.clipboard.writeText(text);
-  btn.innerText = "Copied!";
-  setTimeout(()=> btn.innerText="Copy",1500);
+  alert("Bio berhasil dicopy!");
 }
 </script>
 
