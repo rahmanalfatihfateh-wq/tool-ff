@@ -28,12 +28,26 @@ button{
 }
 #bio{
   margin-top:20px;
-  padding:15px;
+  padding:18px;
   border:2px dashed #ff9800;
-  border-radius:10px;
+  border-radius:12px;
   min-height:60px;
-  font-size:18px;
-  color:#00e5ff;
+  font-size:20px;
+  font-weight:bold;
+
+  background:linear-gradient(90deg,#ff1744,#ff9100,#00e5ff,#76ff03,#e040fb);
+  background-size:300% 300%;
+  animation:rainbow 4s linear infinite;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-align:center;
+}
+
+@keyframes rainbow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 </style>
 </head>
@@ -49,7 +63,12 @@ button{
 </select>
 
 <br>
-<button onclick="generate()">🎯 GENERATE BIO</button>
+<script>
+function generateBio(){
+  document.getElementById("bio").innerText =
+  "🔥 FF Kentang Tapi Booyah 🔥";
+}
+</script>
 <button onclick="copyBio()">📋 COPY</button>
 
 <div id="bio">Klik tombol generate</div>
