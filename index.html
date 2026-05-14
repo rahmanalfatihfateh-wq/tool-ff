@@ -3,128 +3,71 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>🔥 100 Bio FF Kekinian 🔥</title>
-
+<title>Bio FF Warna-Warni</title>
 <style>
 body{
-  background:#0b0f1a;
-  font-family:Arial,sans-serif;
-  color:#fff;
+  background:#0f172a;
+  font-family:Arial, sans-serif;
+  color:white;
+}
+.container{
+  max-width:600px;
+  margin:auto;
   padding:15px;
 }
-
-h1{
-  text-align:center;
-  margin-bottom:15px;
-}
-
 .bio{
-  padding:12px;
-  margin:6px 0;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
-  user-select:none;
-  text-align:center;
-
-  background:linear-gradient(90deg,#ff1744,#ff9100,#00e5ff,#76ff03,#e040fb);
-  background-size:300% 300%;
-  animation:rainbow 4s linear infinite;
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  background:#020617;
+  border:1px solid #334155;
+  border-radius:8px;
+  padding:10px;
+  margin-bottom:10px;
 }
-
-@keyframes rainbow{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+.text{
+  font-size:16px;
+  margin-bottom:8px;
+}
+button{
+  background:#22c55e;
+  border:none;
+  color:black;
+  padding:6px 12px;
+  border-radius:5px;
+  cursor:pointer;
+}
+button:active{
+  transform:scale(0.95);
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<h1>🔥 100 Bio FF Kekinian 🔥</h1>
+  <div class="bio">
+    <div class="text">🔥 ꧁༺ʙᴏᴏʏᴀʜ༻꧂ 🔥</div>
+    <button onclick="copyText(this)">Copy</button>
+  </div>
 
-<!-- 1–100 BIO -->
+  <div class="bio">
+    <div class="text">⚡ FF KENTANG TAPI PRO ⚡</div>
+    <button onclick="copyText(this)">Copy</button>
+  </div>
+
+  <div class="bio">
+    <div class="text">👑 SOLO VS SQUAD 👑</div>
+    <button onclick="copyText(this)">Copy</button>
+  </div>
+
+  <!-- tinggal tambah sampai 100 bio -->
+</div>
+
 <script>
-const bios = [
-"Main santai tapi auto Booyah 😎",
-"Kentang device, sultan mental 🔥",
-"Aim kepala, bukan badan 🎯",
-"HP panas, nyali dingin ❄️",
-"Solo tapi berbahaya ☠️",
-"Tanpa cheat tetap GG 💪",
-"Login bentar, rank naik 🚀",
-"Bukan pro tapi konsisten 😈",
-"Peluru sedikit, damage besar 💥",
-"FF jalan terus 🔥",
-
-"Rusher tanpa ampun ⚡",
-"Headshot bukan kebetulan 🎯",
-"Main jujur skill asli 😎",
-"FPS drop mental naik 🔥",
-"Auto fokus no drama 💀",
-"Bukan sultan tetap jalan 💪",
-"Push rank tanpa nangis 😈",
-"Main pelan tapi mematikan ☠️",
-"FF mode serius 🔥",
-"Nyali besar device kecil ⚡",
-
-"Skill di atas spek 💥",
-"HP kentang rasa sultan 👑",
-"Main tenang hasil Booyah 😎",
-"Solo vs Squad 🔥",
-"Aim stabil tiap match 🎯",
-"No talk just rush ⚡",
-"Kalah sekali balas 10x 😈",
-"Main pakai otak 🧠",
-"FF bukan game mainan 🔥",
-"Peluru habis mental full 💀",
-
-"Auto tap auto panik 😎",
-"Rush dulu mikir belakangan ⚡",
-"FF tanpa ampun 🔥",
-"Bukan joki tapi naik 😈",
-"Headshot dulu baru loot 🎯",
-"Device low end jiwa pro 💪",
-"Main sendirian tetap GG ☠️",
-"Push rank tiap hari 🔥",
-"Skill diasah bukan dibeli 😎",
-"HP panas tapi sabar 🔥",
-
-"Tanpa mod tanpa script 💪",
-"Main cepat tanpa ragu ⚡",
-"Booyah bukan keberuntungan 🔥",
-"Aim kepala tiap momen 🎯",
-"FF jalan terus 😈",
-"Main santai hasil brutal ☠️",
-"Skill dulu gaya belakangan 😎",
-"Solo rank no takut 🔥",
-"Pelan tapi pasti 💥",
-"Auto fokus auto win ⚡",
-
-"Kentang tapi konsisten 🔥",
-"FF sampai akhir 😎",
-"Rusher sejati 💀",
-"Main tanpa takut kalah ⚡",
-"Headshot itu seni 🎯",
-"Nyali di atas segalanya 🔥",
-"Main serius hasil serius 😈",
-"FF bukan sekadar game 💪",
-"Push rank tanpa batas 🚀",
-"Booyah setiap hari 🔥"
-];
-
-function copyOne(text){
+function copyText(btn){
+  let text = btn.previousElementSibling.innerText;
   navigator.clipboard.writeText(text);
-  alert("Bio berhasil dicopy:\n\n"+text);
+  btn.innerText = "Copied!";
+  setTimeout(()=> btn.innerText="Copy",1500);
 }
-
-document.write(
-  bios.map((b,i)=>`<div class="bio" onclick="copyOne('${b.replace(/'/g,"\\'")}')">${i+1}. ${b}</div>`).join("")
-);
 </script>
 
 </body>
