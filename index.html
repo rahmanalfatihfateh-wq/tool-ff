@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <title>FF Bio Generator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
   margin:0;
@@ -12,20 +12,24 @@ body{
   background:linear-gradient(135deg,#020617,#020024,#020617);
   color:#fff;
 }
+
 .container{
   max-width:900px;
   margin:auto;
   padding:20px;
 }
+
 h1{
   text-align:center;
   margin-bottom:20px;
 }
+
 .bio-list{
   display:grid;
   grid-template-columns:1fr;
   gap:12px;
 }
+
 .bio-item{
   display:flex;
   justify-content:space-between;
@@ -34,10 +38,12 @@ h1{
   border-radius:10px;
   background:linear-gradient(90deg,#ff0080,#7928ca,#2afadf);
 }
+
 .bio-text{
   font-size:14px;
   font-weight:600;
 }
+
 button{
   border:none;
   padding:6px 10px;
@@ -45,9 +51,11 @@ button{
   cursor:pointer;
   font-weight:bold;
 }
+
 .copy{
   background:#00ff9c;
 }
+
 .copy:active{
   transform:scale(0.95);
 }
@@ -55,26 +63,33 @@ button{
 </head>
 
 <body>
+
 <div class="container">
+
+<div style="margin-bottom:15px;font-weight:bold;color:#00ff9c;">
+  🔢 Total Bio Dicopy: <span id="copyCount">0</span>
+</div>
+
 <h1>🔥 FF BIO KINIAN 🔥</h1>
 
-<div class="bio-list">
+<div class="bio-list" id="bioList"></div>
 
-<div class="bio-item"><span class="bio-text">🔥 NO MERCY • FF PLAYER</span><button class="copy" onclick="copyText(this)">COPY</button></div>
-<div class="bio-item"><span class="bio-text">⚡ HEADSHOT OR NOTHING</span><button class="copy" onclick="copyText(this)">COPY</button></div>
-<div class="bio-item"><span class="bio-text">👑 SOLO BUT DEADLY</span><button class="copy" onclick="copyText(this)">COPY</button></div>
-<div class="bio-item"><span class="bio-text">💀 RUSH BUKAN NANYA</span><button class="copy" onclick="copyText(this)">COPY</button></div>
-<div class="bio-item"><span class="bio-text">🔥 BOOYAH IS HABIT</span><button class="copy" onclick="copyText(this)">COPY</button></div>
+</div>
 
-<!-- 95 BIO LANJUTAN -->
 <script>
+let totalCopy = 0;
+
 const bios = [
+"🔥 NO MERCY • FF PLAYER",
+"⚡ HEADSHOT OR NOTHING",
+"👑 SOLO BUT DEADLY",
+"💀 RUSH BUKAN NANYA",
+"🔥 BOOYAH IS HABIT",
 "⚡ AIM ON • BRAIN OFF",
 "👑 LAST MAN STANDING",
 "🔥 MAIN SENYAP • MATI CEPAT",
 "💀 ONE TAP KING",
 "⚔️ FF TANPA AMPUN",
-"🔥 AUTO BOOYAH",
 "🎯 HEADSHOT ONLY",
 "👁️ NO FEAR NO MERCY",
 "💣 RUSH ALL DAY",
@@ -114,62 +129,56 @@ const bios = [
 "🔥 READY WAR",
 "⚡ FF VIBES",
 "👁️ NO SECOND CHANCE",
-"💣 GAS TERUS",
-"🔥 WINNING MODE",
-"👑 MAIN SANTAI",
-"⚔️ DAMAGE BESAR",
-"💀 MUSUH PANIK",
-"🎯 AKHIR PERMAINAN",
-"🔥 FF FOREVER",
-"⚡ ONE SHOT",
-"👁️ DEAD INSIDE",
-"💣 ALL IN",
-"🔥 PRO PLAYER",
-"👑 MAIN SENDIRI",
-"⚔️ TANPA TAKUT",
-"💀 HEADSHOT ZONE",
-"🎯 TARGET CLEAR",
-"🔥 GAS POLL",
-"⚡ FULL SKILL",
-"👁️ BUKAN KALENG",
-"💣 AUTO KILL",
-"🔥 NOOB FEAR ME",
-"👑 GG EASY",
-"⚔️ FF POWER",
-"💀 DEAD FAST",
-"🎯 AIM READY",
-"🔥 WAR MODE",
-"⚡ SERIUS MAIN",
-"👁️ LOCK TARGET",
-"💣 RUSH ZONE",
-"🔥 FF STYLE",
-"👑 PRO DAILY",
-"⚔️ DAMAGE MODE",
-"💀 KILL STREAK",
-"🎯 FINAL SHOT",
-"🔥 BOOYAH SETIAP HARI"
+"💣 GAS TERUS"
 ];
 
-const list = document.querySelector(".bio-list");
+const list = document.getElementById("bioList");
+
 bios.forEach(text=>{
   const div = document.createElement("div");
-  div.className="bio-item";
-  div.innerHTML=`<span class="bio-text">${text}</span>
-  <button class="copy" onclick="copyText(this)">COPY</button>`;
+  div.className = "bio-item";
+  div.innerHTML = `
+    <span class="bio-text">${text}</span>
+    <button class="copy" onclick="copyText(this)">COPY</button>
+  `;
   list.appendChild(div);
 });
 
 function copyText(btn){
   const text = btn.parentElement.querySelector(".bio-text").innerText;
+
   navigator.clipboard.writeText(text);
-  btn.innerText="COPIED";
-  setTimeout(()=>btn.innerText="COPY",1000);
-document.addEventListener("copy", function () {
-  alert("⚡ Bio kamu dicopy!");
+
+  btn.innerText = "COPIED";
+  setTimeout(()=>btn.innerText="COPY", 1000);
+
+  totalCopy++;
+  document.getElementById("copyCount").innerText = totalCopy;
+
+  const toast = document.createElement("div");
+  toast.innerText = "⚡ Bio dicopy!";
+  toast.style.cssText = `
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#00ff9c;
+    color:black;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:bold;
+    z-index:9999;
+  `;
+
+  document.body.appendChild(toast);
+  setTimeout(()=>toast.remove(), 1200);
+}
+
+document.addEventListener("copy", function(){
+  totalCopy++;
+  document.getElementById("copyCount").innerText = totalCopy;
 });
 </script>
 
-</div>
-</div>
 </body>
 </html>
