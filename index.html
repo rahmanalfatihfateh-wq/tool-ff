@@ -1,125 +1,173 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <title>FF Bio Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:radial-gradient(circle at top,#0b1a3a,#020617);
+  background:linear-gradient(135deg,#020617,#020024,#020617);
   color:#fff;
-  text-align:center;
-}
-h1{
-  margin-top:30px;
-  color:#ff9f1c;
-  letter-spacing:2px;
 }
 .container{
-  margin-top:30px;
-}
-select,button{
-  padding:12px 18px;
-  border-radius:10px;
-  border:none;
-  font-size:15px;
-  font-weight:bold;
-}
-select{
-  margin-bottom:15px;
-}
-.btn-gen{
-  background:#ff9f1c;
-  color:#000;
-  margin-right:8px;
-}
-.btn-copy{
-  background:#22c55e;
-  color:#000;
-}
-.box{
-  margin:30px auto;
-  max-width:320px;
+  max-width:900px;
+  margin:auto;
   padding:20px;
-  border:2px dashed #ff9f1c;
-  border-radius:14px;
 }
-.rainbow{
-  font-size:20px;
+h1{
+  text-align:center;
+  margin-bottom:20px;
+}
+.bio-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.bio-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 15px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#ff0080,#7928ca,#2afadf);
+}
+.bio-text{
+  font-size:14px;
+  font-weight:600;
+}
+button{
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
   font-weight:bold;
-  background:linear-gradient(90deg,#ff004c,#ff9100,#ffee00,#00ff99,#00ccff,#a855f7);
-  background-size:300% 300%;
-  animation:rainbow 4s linear infinite;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
 }
-@keyframes rainbow{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+.copy{
+  background:#00ff9c;
+}
+.copy:active{
+  transform:scale(0.95);
 }
 </style>
 </head>
 
 <body>
-
-<h1>🔥 FF BIO GENERATOR 🔥</h1>
-
 <div class="container">
-  <select id="kategori">
-    <option value="toxic">☠️ Toxic</option>
-    <option value="santuy">😎 Santuy</option>
-    <option value="pro">🔥 Pro</option>
-  </select><br>
+<h1>🔥 FF BIO KINIAN 🔥</h1>
 
-  <button class="btn-gen" onclick="generateBio()">🎯 GENERATE BIO</button>
-  <button class="btn-copy" onclick="copyBio()">📋 COPY</button>
+<div class="bio-list">
 
-  <div class="box">
-    <div id="bio" class="rainbow">Klik Generate Bio</div>
-  </div>
-</div>
+<div class="bio-item"><span class="bio-text">🔥 NO MERCY • FF PLAYER</span><button class="copy" onclick="copyText(this)">COPY</button></div>
+<div class="bio-item"><span class="bio-text">⚡ HEADSHOT OR NOTHING</span><button class="copy" onclick="copyText(this)">COPY</button></div>
+<div class="bio-item"><span class="bio-text">👑 SOLO BUT DEADLY</span><button class="copy" onclick="copyText(this)">COPY</button></div>
+<div class="bio-item"><span class="bio-text">💀 RUSH BUKAN NANYA</span><button class="copy" onclick="copyText(this)">COPY</button></div>
+<div class="bio-item"><span class="bio-text">🔥 BOOYAH IS HABIT</span><button class="copy" onclick="copyText(this)">COPY</button></div>
 
+<!-- 95 BIO LANJUTAN -->
 <script>
-const data = {
-toxic:[
-"☠️ MENDING AFK",
-"🔥 KALAH SEKALI BALAS 10X",
-"💀 BARBAR SAMPAI BOOYAH",
-"☠️ FF MODE SADIS",
-"🔥 NO MERCY"
-],
-santuy:[
-"😎 MAIN SANTUY AUTO BOOYAH",
-"🌴 MAIN TENANG MENANG DATANG",
-"😎 LOGIN BENTAR RANK NAIK",
-"🌤️ SANTUY TAPI BERBAHAYA",
-"😎 FF JALAN TERUS"
-],
-pro:[
-"🔥 AIM KEPALA BUKAN BADAN",
-"🎯 AKURASI DI ATAS SEGALANYA",
-"👑 ZONA AKHIR MILIKKU",
-"🔥 SKILL > SETTING",
-"🎯 ONE TAP ONE DOWN"
-]
-};
+const bios = [
+"⚡ AIM ON • BRAIN OFF",
+"👑 LAST MAN STANDING",
+"🔥 MAIN SENYAP • MATI CEPAT",
+"💀 ONE TAP KING",
+"⚔️ FF TANPA AMPUN",
+"🔥 AUTO BOOYAH",
+"🎯 HEADSHOT ONLY",
+"👁️ NO FEAR NO MERCY",
+"💣 RUSH ALL DAY",
+"⚡ FAST KILL",
+"🔥 FF NIGHTMARE",
+"👑 MVP SETIAP MATCH",
+"💀 ZONE LAST HERO",
+"⚔️ CLUTCH MASTER",
+"🎯 AKURASI DEWA",
+"🔥 JANGAN KEDEKET",
+"⚡ SPEED + AIM",
+"👁️ LIHAT • BIDIK • MATI",
+"💣 KILL MODE ON",
+"🔥 FF IS MY GAME",
+"👑 PRO TANPA BACOT",
+"⚔️ SKILL BUKAN BACOT",
+"💀 SATU PELURU",
+"🎯 KEPALA TARGET",
+"🔥 AUTO MENANG",
+"⚡ GG SETIAP HARI",
+"👁️ DILIHAT LANGSUNG TUMBANG",
+"💣 RUSH SAMPAI ZONE",
+"🔥 MAIN TENANG",
+"👑 NO DRAMA",
+"⚔️ FF HARD MODE",
+"💀 JANGAN SALAH LAWAN",
+"🎯 AIM LOCK",
+"🔥 MAIN CEPAT",
+"⚡ PRO MODE",
+"👁️ DEADLY MOVE",
+"💣 SERANG DULU",
+"🔥 BOOYAH TIME",
+"👑 SOLO KING",
+"⚔️ FF LEGEND",
+"💀 LAST BULLET",
+"🎯 SHOT PERFECT",
+"🔥 READY WAR",
+"⚡ FF VIBES",
+"👁️ NO SECOND CHANCE",
+"💣 GAS TERUS",
+"🔥 WINNING MODE",
+"👑 MAIN SANTAI",
+"⚔️ DAMAGE BESAR",
+"💀 MUSUH PANIK",
+"🎯 AKHIR PERMAINAN",
+"🔥 FF FOREVER",
+"⚡ ONE SHOT",
+"👁️ DEAD INSIDE",
+"💣 ALL IN",
+"🔥 PRO PLAYER",
+"👑 MAIN SENDIRI",
+"⚔️ TANPA TAKUT",
+"💀 HEADSHOT ZONE",
+"🎯 TARGET CLEAR",
+"🔥 GAS POLL",
+"⚡ FULL SKILL",
+"👁️ BUKAN KALENG",
+"💣 AUTO KILL",
+"🔥 NOOB FEAR ME",
+"👑 GG EASY",
+"⚔️ FF POWER",
+"💀 DEAD FAST",
+"🎯 AIM READY",
+"🔥 WAR MODE",
+"⚡ SERIUS MAIN",
+"👁️ LOCK TARGET",
+"💣 RUSH ZONE",
+"🔥 FF STYLE",
+"👑 PRO DAILY",
+"⚔️ DAMAGE MODE",
+"💀 KILL STREAK",
+"🎯 FINAL SHOT",
+"🔥 BOOYAH SETIAP HARI"
+];
 
-function generateBio(){
-  const kat=document.getElementById("kategori").value;
-  const list=data[kat];
-  const random=list[Math.floor(Math.random()*list.length)];
-  document.getElementById("bio").innerText=random;
-}
+const list = document.querySelector(".bio-list");
+bios.forEach(text=>{
+  const div = document.createElement("div");
+  div.className="bio-item";
+  div.innerHTML=`<span class="bio-text">${text}</span>
+  <button class="copy" onclick="copyText(this)">COPY</button>`;
+  list.appendChild(div);
+});
 
-function copyBio(){
-  const text=document.getElementById("bio").innerText;
-  if(text==="Klik Generate Bio") return;
+function copyText(btn){
+  const text = btn.parentElement.querySelector(".bio-text").innerText;
   navigator.clipboard.writeText(text);
-  alert("Bio berhasil dicopy!");
+  btn.innerText="COPIED";
+  setTimeout(()=>btn.innerText="COPY",1000);
 }
 </script>
 
+</div>
+</div>
 </body>
 </html>
