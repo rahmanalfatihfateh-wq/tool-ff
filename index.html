@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -21,7 +22,14 @@ body{
 
 h1{
   text-align:center;
+  margin-bottom:10px;
+}
+
+.counter{
+  text-align:center;
   margin-bottom:20px;
+  font-weight:bold;
+  color:#00ff9c;
 }
 
 .bio-list{
@@ -35,8 +43,13 @@ h1{
   justify-content:space-between;
   align-items:center;
   padding:12px 15px;
-  border-radius:10px;
+  border-radius:12px;
   background:linear-gradient(90deg,#ff0080,#7928ca,#2afadf);
+  transition:transform .2s;
+}
+
+.bio-item:hover{
+  transform:scale(1.02);
 }
 
 .bio-text{
@@ -44,20 +57,18 @@ h1{
   font-weight:600;
 }
 
-button{
+.copy-btn{
   border:none;
-  padding:6px 10px;
-  border-radius:6px;
+  padding:6px 12px;
+  border-radius:8px;
   cursor:pointer;
   font-weight:bold;
-}
-
-.copy{
   background:#00ff9c;
+  color:#000;
 }
 
-.copy:active{
-  transform:scale(0.95);
+.copy-btn:active{
+  transform:scale(0.9);
 }
 </style>
 </head>
@@ -66,11 +77,10 @@ button{
 
 <div class="container">
 
-<div style="margin-bottom:15px;font-weight:bold;color:#00ff9c;">
+<h1>🔥 FF BIO KINIAN 🔥</h1>
+<div class="counter">
   🔢 Total Bio Dicopy: <span id="copyCount">0</span>
 </div>
-
-<h1>🔥 FF BIO KINIAN 🔥</h1>
 
 <div class="bio-list" id="bioList"></div>
 
@@ -87,48 +97,18 @@ const bios = [
 "🔥 BOOYAH IS HABIT",
 "⚡ AIM ON • BRAIN OFF",
 "👑 LAST MAN STANDING",
-"🔥 MAIN SENYAP • MATI CEPAT",
 "💀 ONE TAP KING",
-"⚔️ FF TANPA AMPUN",
 "🎯 HEADSHOT ONLY",
-"👁️ NO FEAR NO MERCY",
+"⚔️ FF TANPA AMPUN",
+"🔥 PRO TANPA BACOT",
 "💣 RUSH ALL DAY",
 "⚡ FAST KILL",
-"🔥 FF NIGHTMARE",
-"👑 MVP SETIAP MATCH",
-"💀 ZONE LAST HERO",
-"⚔️ CLUTCH MASTER",
-"🎯 AKURASI DEWA",
-"🔥 JANGAN KEDEKET",
-"⚡ SPEED + AIM",
-"👁️ LIHAT • BIDIK • MATI",
-"💣 KILL MODE ON",
+"👁️ NO FEAR NO MERCY",
 "🔥 FF IS MY GAME",
-"👑 PRO TANPA BACOT",
-"⚔️ SKILL BUKAN BACOT",
-"💀 SATU PELURU",
-"🎯 KEPALA TARGET",
-"🔥 AUTO MENANG",
-"⚡ GG SETIAP HARI",
-"👁️ DILIHAT LANGSUNG TUMBANG",
-"💣 RUSH SAMPAI ZONE",
-"🔥 MAIN TENANG",
-"👑 NO DRAMA",
-"⚔️ FF HARD MODE",
-"💀 JANGAN SALAH LAWAN",
-"🎯 AIM LOCK",
-"🔥 MAIN CEPAT",
-"⚡ PRO MODE",
-"👁️ DEADLY MOVE",
-"💣 SERANG DULU",
-"🔥 BOOYAH TIME",
 "👑 SOLO KING",
-"⚔️ FF LEGEND",
-"💀 LAST BULLET",
-"🎯 SHOT PERFECT",
-"🔥 READY WAR",
-"⚡ FF VIBES",
-"👁️ NO SECOND CHANCE",
+"⚔️ CLUTCH MASTER",
+"🎯 AIM LOCK",
+"💀 JANGAN SALAH LAWAN",
 "💣 GAS TERUS"
 ];
 
@@ -139,24 +119,34 @@ bios.forEach(text=>{
   div.className = "bio-item";
   div.innerHTML = `
     <span class="bio-text">${text}</span>
-    <button class="copy" onclick="copyText(this)">COPY</button>
+    <button class="copy-btn">COPY</button>
   `;
   list.appendChild(div);
 });
 
-function copyText(btn){
-  const text = btn.parentElement.querySelector(".bio-text").innerText;
+document.querySelectorAll(".copy-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const text = btn.previousElementSibling.innerText;
+    navigator.clipboard.writeText(text);
 
-  navigator.clipboard.writeText(text);
+    totalCopy++;
+    document.getElementById("copyCount").innerText = totalCopy;
 
-  btn.innerText = "COPIED";
-  setTimeout(()=>btn.innerText="COPY", 1000);
+    btn.innerText = "✔ COPIED";
+    btn.style.background = "#22c55e";
 
-  totalCopy++;
-  document.getElementById("copyCount").innerText = totalCopy;
+    showToast("⚡ Bio dicopy!");
 
+    setTimeout(()=>{
+      btn.innerText = "COPY";
+      btn.style.background = "#00ff9c";
+    },1000);
+  });
+});
+
+function showToast(msg){
   const toast = document.createElement("div");
-  toast.innerText = "⚡ Bio dicopy!";
+  toast.innerText = msg;
   toast.style.cssText = `
     position:fixed;
     bottom:20px;
@@ -165,19 +155,13 @@ function copyText(btn){
     background:#00ff9c;
     color:black;
     padding:10px 15px;
-    border-radius:10px;
+    border-radius:12px;
     font-weight:bold;
     z-index:9999;
   `;
-
   document.body.appendChild(toast);
-  setTimeout(()=>toast.remove(), 1200);
+  setTimeout(()=>toast.remove(),1200);
 }
-
-document.addEventListener("copy", function(){
-  totalCopy++;
-  document.getElementById("copyCount").innerText = totalCopy;
-});
 </script>
 
 </body>
