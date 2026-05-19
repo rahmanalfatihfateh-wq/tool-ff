@@ -1,167 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>FF Bio Generator</title>
+<title>Bio FF Keren</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
+  font-family: Arial, sans-serif;
   margin:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(135deg,#020617,#020024,#020617);
+  background:#0b1220;
   color:#fff;
+}
+
+.header{
+  padding:20px;
+  text-align:center;
+  background:linear-gradient(90deg,#ff0080,#7928ca,#00ffcc);
 }
 
 .container{
   max-width:900px;
   margin:auto;
-  padding:20px;
+  padding:15px;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:10px;
+.search{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  margin:15px 0;
 }
 
-.counter{
-  text-align:center;
-  margin-bottom:20px;
+.section-title{
+  margin:20px 0 10px;
+  color:#00ffcc;
   font-weight:bold;
-  color:#00ff9c;
-}
-
-.bio-list{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
 }
 
 .bio-item{
+  background:#111a2e;
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:10px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 15px;
-  border-radius:12px;
-  background:linear-gradient(90deg,#ff0080,#7928ca,#2afadf);
-  transition:transform .2s;
-}
-
-.bio-item:hover{
-  transform:scale(1.02);
 }
 
 .bio-text{
   font-size:14px;
-  font-weight:600;
 }
 
-.copy-btn{
+button{
   border:none;
-  padding:6px 12px;
-  border-radius:8px;
-  cursor:pointer;
+  padding:6px 10px;
+  border-radius:6px;
+  background:#00ffcc;
   font-weight:bold;
-  background:#00ff9c;
-  color:#000;
+  cursor:pointer;
 }
 
-.copy-btn:active{
-  transform:scale(0.9);
+.counter{
+  text-align:center;
+  margin:10px 0;
+  color:#00ffcc;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<h1>🔥 FF BIO KINIAN 🔥</h1>
-<div class="counter">
-  🔢 Total Bio Dicopy: <span id="copyCount">0</span>
+<div class="header">
+  <h2>🔥 BIO FF KEREN 🔥</h2>
+  <p>Style ala DuniaGames (versi kamu)</p>
 </div>
 
-<div class="bio-list" id="bioList"></div>
+<div class="container">
+
+<div class="counter">
+🔢 Total Bio Dicopy: <span id="count">0</span>
+</div>
+
+<input class="search" id="search" placeholder="Cari bio FF...">
+
+<div class="section-title">🔥 Bio FF Keren</div>
+<div id="list"></div>
 
 </div>
 
 <script>
-let totalCopy = 0;
+let total = 0;
 
 const bios = [
-"🔥 NO MERCY • FF PLAYER",
-"⚡ HEADSHOT OR NOTHING",
-"👑 SOLO BUT DEADLY",
-"💀 RUSH BUKAN NANYA",
-"🔥 BOOYAH IS HABIT",
-"⚡ AIM ON • BRAIN OFF",
-"👑 LAST MAN STANDING",
-"💀 ONE TAP KING",
-"🎯 HEADSHOT ONLY",
-"⚔️ FF TANPA AMPUN",
-"🔥 PRO TANPA BACOT",
-"💣 RUSH ALL DAY",
-"⚡ FAST KILL",
-"👁️ NO FEAR NO MERCY",
-"🔥 FF IS MY GAME",
-"👑 SOLO KING",
-"⚔️ CLUTCH MASTER",
-"🎯 AIM LOCK",
-"💀 JANGAN SALAH LAWAN",
-"💣 GAS TERUS"
+"Skin tidak perlu, skill nomor satu",
+"KD boleh kecil, tapi nyali gak mungil",
+"HP kentang tapi skill dewa",
+"Jago itu diakui bukan mengakui",
+"Free Fire = Hidup",
+"Solo but deadly",
+"Headshot or nothing",
+"Booyah is habit",
+"No mercy player",
+"Clutch master"
 ];
 
-const list = document.getElementById("bioList");
+const list = document.getElementById("list");
 
-bios.forEach(text=>{
-  const div = document.createElement("div");
-  div.className = "bio-item";
-  div.innerHTML = `
-    <span class="bio-text">${text}</span>
-    <button class="copy-btn">COPY</button>
-  `;
-  list.appendChild(div);
-});
-
-document.querySelectorAll(".copy-btn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const text = btn.previousElementSibling.innerText;
-    navigator.clipboard.writeText(text);
-
-    totalCopy++;
-    document.getElementById("copyCount").innerText = totalCopy;
-
-    btn.innerText = "✔ COPIED";
-    btn.style.background = "#22c55e";
-
-    showToast("⚡ Bio dicopy!");
-
-    setTimeout(()=>{
-      btn.innerText = "COPY";
-      btn.style.background = "#00ff9c";
-    },1000);
+function render(data){
+  list.innerHTML="";
+  data.forEach(b=>{
+    list.innerHTML+=`
+      <div class="bio-item">
+        <span class="bio-text">${b}</span>
+        <button onclick="copyBio('${b}',this)">COPY</button>
+      </div>`;
   });
-});
-
-function showToast(msg){
-  const toast = document.createElement("div");
-  toast.innerText = msg;
-  toast.style.cssText = `
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#00ff9c;
-    color:black;
-    padding:10px 15px;
-    border-radius:12px;
-    font-weight:bold;
-    z-index:9999;
-  `;
-  document.body.appendChild(toast);
-  setTimeout(()=>toast.remove(),1200);
 }
+
+render(bios);
+
+function copyBio(text,btn){
+  navigator.clipboard.writeText(text);
+  total++;
+  document.getElementById("count").innerText=total;
+  btn.innerText="COPIED";
+  setTimeout(()=>btn.innerText="COPY",1000);
+}
+
+document.getElementById("search").addEventListener("input",e=>{
+  const v=e.target.value.toLowerCase();
+  render(bios.filter(b=>b.toLowerCase().includes(v)));
+});
 </script>
 
 </body>
