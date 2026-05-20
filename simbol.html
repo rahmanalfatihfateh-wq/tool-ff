@@ -5,15 +5,29 @@
 </head>
 <body>
 
-<h1>Simbol FF Keren</h1>
+<h1>🔥 Simbol FF Keren Lengkap</h1>
 
-<p>✦ ★ ⚡ ☠ ♛ ♚ ✧</p>
+<p id="simbol">
+✦ ★ ☆ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✵ ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿ ❂ ❃ ❄ ❅ ❆ ❇ ❈ ❉ ❊ ❋
+☠ ⚡ ⚔ ☬ ☯ ☢ ☣ ✟ ✞ ✝ ✚ ✜ ✛ ✠ ⚜ ☮
+👑 💀 🔥 💎 ⚡ 🐉 🗡️ 🛡️ 💣 🎯 🏆 🔱 ⚒️
+➤ ➣ ➜ ➝ ➞ ➟ ➠ ➡ ⬅ ⬆ ⬇ ↗ ↘ ↖ ↙
+♡ ♥ ❥ ❣ ❦ ❧ ღ 💔 💖 💗 💘 💝 💞 💓 💕
+░ ▒ ▓ █ ▄ ▅ ▆ ▇ █
+</p>
 
-<p>Bisa dipakai buat nickname Free Fire</p>
+<button onclick="copyText()">📋 Copy Semua Simbol</button>
 
-<br>
+<br><br>
+<a href="index.html">⬅ Home</a>
 
-<a href="index.html">⬅ Kembali ke Home</a>
+<script>
+function copyText() {
+  let text = document.getElementById("simbol").innerText;
+  navigator.clipboard.writeText(text);
+  alert("✔ Simbol berhasil di-copy!");
+}
+</script>
 
 </body>
 </html>
