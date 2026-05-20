@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Bio FF Keren</title>
+<title>Tool FF Keren</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Analytics -->
@@ -10,46 +10,49 @@
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-
 gtag('js', new Date());
 gtag('config', 'G-17Q9FMXGPF');
 </script>
+
 <style>
 body{
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   margin:0;
   background:#0b1220;
   color:#fff;
 }
 
 .header{
-  padding:20px;
   text-align:center;
+  padding:15px;
   background:linear-gradient(90deg,#ff0080,#7928ca,#00ffcc);
 }
 
 .menu{
+  position:sticky;
+  top:0;
+  background:#0b1220;
+  z-index:9999;
   text-align:center;
   padding:10px;
 }
 
 .menu a{
-  color:#fff;
+  color:white;
   margin:0 10px;
   text-decoration:none;
-  font-weight:bold;
+  padding:10px;
+  display:inline-block;
 }
 
 .container{
-  max-width:900px;
-  margin:auto;
   padding:15px;
 }
 
-.bio-item{
+.box{
   background:#111a2e;
-  padding:12px;
-  margin-bottom:8px;
+  padding:10px;
+  margin:8px 0;
   border-radius:10px;
   display:flex;
   justify-content:space-between;
@@ -57,26 +60,25 @@ body{
 }
 
 button{
+  background:#00ffcc;
   border:none;
   padding:6px 10px;
   border-radius:6px;
-  background:#00ffcc;
-  font-weight:bold;
   cursor:pointer;
+  font-weight:bold;
 }
 
-.search{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  margin:15px 0;
-}
-
-.counter{
+.home{
+  display:block;
   text-align:center;
-  margin:10px 0;
+  margin-top:20px;
   color:#00ffcc;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 </style>
 </head>
@@ -84,8 +86,7 @@ button{
 <body>
 
 <div class="header">
-  <h2>🔥 BIO FF KEREN 🔥</h2>
-  <p>Style ala DuniaGames</p>
+  🔥 TOOL FF KEREN 🔥
 </div>
 
 <!-- MENU -->
@@ -97,75 +98,56 @@ button{
 
 <div class="container">
 
-<div class="counter">
-🔢 Total Dicopy: <span id="count">0</span>
-</div>
-
 <!-- BIO -->
 <h3 id="bio">📌 BIO FF</h3>
-<p>🔥 Bio Pro Player FF</p>
-<p>👑 King Battle</p>
-
-<!-- FONT -->
-<h3 id="font">🔤 FONT FF</h3>
-<p>𝔽𝕠𝕟𝕥 𝕂𝕖𝕣𝕖𝕟</p>
-<p>𝐅𝐅 𝐊𝐞𝐫𝐞𝐧</p>
-
-<!-- SIMBOL -->
-<h3 id="simbol">🔥 SIMBOL FF</h3>
-<p>★ ⚡ 👑 🔥 💎 ☠ ♛ ♚ ✧ ✪ ✫ ✬ ✭ ✮</p>
+<div class="box">
+  <span>🔥 Bio Pro Player FF</span>
+  <button onclick="copy('🔥 Bio Pro Player FF')">COPY</button>
+</div>
+<div class="box">
+  <span>👑 King Battle</span>
+  <button onclick="copy('👑 King Battle')">COPY</button>
+</div>
 
 <hr>
 
-<input class="search" id="search" placeholder="Cari bio FF...">
+<!-- FONT -->
+<h3 id="font">🔤 FONT FF</h3>
 
-<div id="list"></div>
+<div class="box">
+  <span>𝔽𝕠𝕟𝕥 𝕂𝕖𝕣𝕖𝕟</span>
+  <button onclick="copy('𝔽𝕠𝕟𝕥 𝕂𝕖𝕣𝕖𝕟')">COPY</button>
+</div>
+
+<div class="box">
+  <span>𝐅𝐅 𝐊𝐞𝐫𝐞𝐧</span>
+  <button onclick="copy('𝐅𝐅 𝐊𝐞𝐫𝐞𝐧')">COPY</button>
+</div>
+
+<div class="box">
+  <span>𝗙𝗙 𝗦𝘁𝘆𝗹𝗲</span>
+  <button onclick="copy('𝗙𝗙 𝗦𝘁𝘆𝗹𝗲')">COPY</button>
+</div>
+
+<hr>
+
+<!-- SIMBOL -->
+<h3 id="simbol">🔥 SIMBOL FF</h3>
+
+<div class="box">
+  <span>★ ⚡ 👑 🔥 💎 ☠ ♛ ♚ ✧ ✪ ✫ ✬ ✭ ✮</span>
+  <button onclick="copy('★ ⚡ 👑 🔥 💎 ☠ ♛ ♚ ✧ ✪ ✫ ✬ ✭ ✮')">COPY</button>
+</div>
+
+<a class="home" href="#">⬅ Kembali ke Home</a>
 
 </div>
 
 <script>
-let total = 0;
-
-const bios = [
-"Skin tidak perlu, skill nomor satu",
-"KD boleh kecil, tapi nyali gak mungil",
-"HP kentang tapi skill dewa",
-"Jago itu diakui bukan mengakui",
-"Free Fire = Hidup",
-"Solo but deadly",
-"Headshot or nothing",
-"Booyah is habit",
-"No mercy player",
-"Clutch master"
-];
-
-const list = document.getElementById("list");
-
-function render(data){
-  list.innerHTML="";
-  data.forEach(b=>{
-    list.innerHTML+=`
-      <div class="bio-item">
-        <span>${b}</span>
-        <button onclick="copyBio('${b}',this)">COPY</button>
-      </div>`;
-  });
-}
-
-render(bios);
-
-function copyBio(text,btn){
+function copy(text){
   navigator.clipboard.writeText(text);
-  total++;
-  document.getElementById("count").innerText=total;
-  btn.innerText="COPIED";
-  setTimeout(()=>btn.innerText="COPY",1000);
+  alert("✔ Copied: " + text);
 }
-
-document.getElementById("search").addEventListener("input",e=>{
-  const v=e.target.value.toLowerCase();
-  render(bios.filter(b=>b.toLowerCase().includes(v)));
-});
 </script>
 
 </body>
