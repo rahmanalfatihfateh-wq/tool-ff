@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Bio FF Keren</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17Q9FMXGPF"></script>
 <script>
@@ -13,30 +14,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-17Q9FMXGPF');
 </script>
-<h2>🔥 TOOL FF</h2>
-
-<div class="menu">
-  <a href="#bio">Bio</a> |
-  <a href="#font">Font</a> |
-  <a href="#simbol">Simbol</a>
-</div>
-
-<hr>
-
-<h3 id="bio">📌 BIO FF</h3>
-<p>🔥 Bio Pro Player FF</p>
-<p>👑 King Battle</p>
-
-<hr>
-
-<h3 id="font">🔤 FONT FF</h3>
-<p>𝔽𝕠𝕟𝕥 𝕂𝕖𝕣𝕖𝕟</p>
-<p>𝐅𝐅 𝐊𝐞𝐫𝐞𝐧</p>
-
-<hr>
-
-<h3 id="simbol">🔥 SIMBOL FF</h3>
-<p>★ ⚡ 👑 🔥 💎</p>
 <style>
 body{
   font-family: Arial, sans-serif;
@@ -51,24 +28,22 @@ body{
   background:linear-gradient(90deg,#ff0080,#7928ca,#00ffcc);
 }
 
+.menu{
+  text-align:center;
+  padding:10px;
+}
+
+.menu a{
+  color:#fff;
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
 .container{
   max-width:900px;
   margin:auto;
   padding:15px;
-}
-
-.search{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  margin:15px 0;
-}
-
-.section-title{
-  margin:20px 0 10px;
-  color:#00ffcc;
-  font-weight:bold;
 }
 
 .bio-item{
@@ -81,10 +56,6 @@ body{
   align-items:center;
 }
 
-.bio-text{
-  font-size:14px;
-}
-
 button{
   border:none;
   padding:6px 10px;
@@ -92,6 +63,14 @@ button{
   background:#00ffcc;
   font-weight:bold;
   cursor:pointer;
+}
+
+.search{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  margin:15px 0;
 }
 
 .counter{
@@ -106,18 +85,40 @@ button{
 
 <div class="header">
   <h2>🔥 BIO FF KEREN 🔥</h2>
-  <p>Style ala DuniaGames (versi kamu)</p>
+  <p>Style ala DuniaGames</p>
+</div>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="#bio">Bio</a>
+  <a href="#font">Font</a>
+  <a href="#simbol">Simbol</a>
 </div>
 
 <div class="container">
 
 <div class="counter">
-🔢 Total Bio Dicopy: <span id="count">0</span>
+🔢 Total Dicopy: <span id="count">0</span>
 </div>
+
+<!-- BIO -->
+<h3 id="bio">📌 BIO FF</h3>
+<p>🔥 Bio Pro Player FF</p>
+<p>👑 King Battle</p>
+
+<!-- FONT -->
+<h3 id="font">🔤 FONT FF</h3>
+<p>𝔽𝕠𝕟𝕥 𝕂𝕖𝕣𝕖𝕟</p>
+<p>𝐅𝐅 𝐊𝐞𝐫𝐞𝐧</p>
+
+<!-- SIMBOL -->
+<h3 id="simbol">🔥 SIMBOL FF</h3>
+<p>★ ⚡ 👑 🔥 💎 ☠ ♛ ♚ ✧ ✪ ✫ ✬ ✭ ✮</p>
+
+<hr>
 
 <input class="search" id="search" placeholder="Cari bio FF...">
 
-<div class="section-title">🔥 Bio FF Keren</div>
 <div id="list"></div>
 
 </div>
@@ -145,7 +146,7 @@ function render(data){
   data.forEach(b=>{
     list.innerHTML+=`
       <div class="bio-item">
-        <span class="bio-text">${b}</span>
+        <span>${b}</span>
         <button onclick="copyBio('${b}',this)">COPY</button>
       </div>`;
   });
